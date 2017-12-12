@@ -9,3 +9,6 @@ let myUniq = (arr) => {
 	}
 	return uniqArr;
 }
+
+
+//use hash

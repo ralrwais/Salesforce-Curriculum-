@@ -7,5 +7,7 @@ let validPar = (str) => {
 	return str === '';
 }
 
+//try with stack and queue
+
 
 
