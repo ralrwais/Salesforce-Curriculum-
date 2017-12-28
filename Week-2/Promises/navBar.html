@@ -153,10 +153,18 @@
 	</div>  
 	</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function dropdownMenu() {
 		document.getElementById("dropdown-two").classList.toggle("dropdownVisible");
 	}
+
+	$(window).click(function() {
+		var dropMenu = document.getElementById("dropdown-two");
+		if(dropMenu.classList.contains("dropdownVisible")){
+			dropMenu.classList.toggle("dropdownHidden");
+		}
+	})
 
 </script>
 </body>

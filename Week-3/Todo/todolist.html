@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo List</title>
+</head>
+<style type="text/css">
+	#container{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		height: 200px;
+	}
+	.list-functions{
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		margin: 5px;
+		position: relative;
+		float: left;
+		list-style: none;
+	}
+	#listItems{
+		display: flex;
+		justify-content: center;
+		position: relative;
+    	left: -15px
+	}
+	ul{
+		list-style: none;
+	}
+	h2{
+		text-align: center;
+		font-family: "Arial";
+		color: grey;
+	}
+
+</style>
+<body>
+	<h2>My Todo List</h2>
+	<div id="container">
+		<div class="list-functions">
+	    	<button onclick="handlers.toggleAll()">Toggle All</button>
+	    </div>	
+	    <div class="list-functions">
+	   		<button onclick="handlers.addTodo()">Add</button>
+	    	<input type="text" id="addTodoInput">
+		</div>
+	    <div class="list-functions">
+	    	<button onclick="handlers.changeTodo()">Change</button>
+	    	<input type="number" id="changeTodoPosition">
+	    	<input type="text" id="changeTodoText">
+	    </div> 
+	    <div class="list-functions">
+	    	<button onclick="handlers.toggleCompleted()">Completed</button>
+	    	<input type="number" id="toggleCompletedPosition">
+	    </div>
+	</div>
+	<div id="listItems">
+		<ul>
+		</ul>
+	</div>
+
+<script type="text/javascript" src="todolist.js"></script>
+</body>
+</html>
