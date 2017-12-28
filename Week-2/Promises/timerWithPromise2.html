@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1 id="clock"></h1>
+	<button onclick="stop()">Stop</button>	
+	<button onclick="start()">Start</button>
+</body>
+
+<script type="text/javascript">
+
+	let clock = document.getElementById('clock'),
+		seconds = 0;
+
+	var timer = function(delay) {
+    let seconds = 0;
+    let increment = null;
+    let interval = null;
+    let start = () => { interval = setInterval(increment, 1000)};
+	let stop = () => { clearInterval(interval)};
+
+    let promise = new Promise((resolve) => {
+        increment = function() {
+            seconds++;
+            clock.innerHTML = `${Math.floor(seconds / 60)} : ${seconds % 60}`;
+            resolve(timer);
+        }
+        
+    });
+
+    // return {
+    // 	start: () => { interval = setInterval(increment, 1000) },
+    //     stop: () => { clearInterval(interval)}
+    // }       
+}
+
+</script>
+</html>

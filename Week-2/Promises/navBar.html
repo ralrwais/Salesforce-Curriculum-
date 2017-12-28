@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<style type="text/css">
+	body{
+		font-family: 'Roboto', sans-serif;
+		margin: 0px;
+	}
+	.nav{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		border: 1px solid darkgrey;
+		height: 60px;
+	}
+	.column{
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		min-width: 20vw;
+	}
+	.col-heading{
+		height: 100%;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	}
+	.dropdown li:hover {
+		background: green;
+		font-style: oblique;
+	}
+	.col-heading:hover + .dropdown{
+		display: block;
+	}
+	.dropdown:hover{
+		display: block;
+	}
+	.divider{
+		width: 1px;
+		background: darkgrey;
+		height: 100%;
+	}
+	.dropdown{
+		position: absolute;
+		top: 50px;
+		padding-right: 40px;
+		display: none;
+		background: pink;
+	}
+	ul{
+		list-style: none;
+	}
+	.dropdown li{
+		margin-top: 40px;
+    	margin-bottom: 50px;
+  }
+	  .click-col{
+	  		height: 100%;
+		    display: flex;
+		    flex-direction: column;
+		    justify-content: center;
+	  }
+	  	#dropdown-two{
+			position: absolute;
+			top: 50px;
+			padding-right: 40px;
+			background: pink;
+	  }
+	  #dropdown-two li{
+			margin-top: 40px;
+	    	margin-bottom: 50px;
+	  }
+	  #dropdown-two li:hover {
+			background: yellow;
+			font-style: oblique;
+		}
+	  	.dropdownHidden{
+	  	display: none;
+	  }
+	 	.dropdownVisible{
+	  	display: block;
+	  }
+	#carousel{
+		width: 350px;
+		height: 150px;
+		position: relative;
+		overflow: hidden;
+		margin-top: 30%;
+	} 
+	#my-carousel{
+		width: 500%;
+		animation: my-carousel 15s linear infinite;
+	}
+	#my-carousel li{  
+	    display: inline-block;  
+	    border: 1px solid #ccc;  
+	    width: 16%;  
+	    margin: 2%;  
+	    box-sizing: border-box;  
+	    height: 100px;  
+	} 	
+	@keyframes my-carousel {
+	  0%, 23% {margin-left:0}
+	  25%, 48% { margin-left:-100%; }
+	  50%, 73% { margin-left:-200%; }
+	  75%, 98% { margin-left:-300%;}
+	  100% { margin-left:0;}
+}
+</style>
+<body>
+	<div class="nav">
+		<div class="column">
+			<div class="col-heading">Hover</div>
+			<div class="dropdown">
+				<ul>
+					<li>item 1</li>
+					<li>item 2</li>
+					<li>item 3</li>
+					<li>item 4</li>
+				</ul>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="column"><div class="click-col" onclick="dropdownMenu()">Click</div>
+			<div id="dropdown-two" class="dropdownHidden">
+				<ul>
+					<li>item 1</li>
+					<li>item 2</li>
+					<li>item 3</li>
+					<li>item 4</li>
+				</ul>
+			</div>
+		</div>
+		<div class="divider"></div>
+		<div class="column">Extra</div>
+		<div class="divider"></div>
+		<div class="column">Super Extra</div>
+	</div>
+	<div id="carousel">
+	<div id="my-carousel">  
+	    <ul>  
+	        <li style="background: pink">Look</li>  
+	        <li style=" background: blue">At</li>  
+	        <li style="background: green">This</li>  
+	        <li style="background: yellow">Carousel</li>  
+	    </ul>  
+	</div>  
+	</div>
+
+<script type="text/javascript">
+	function dropdownMenu() {
+		document.getElementById("dropdown-two").classList.toggle("dropdownVisible");
+	}
+
+</script>
+</body>
+</html>

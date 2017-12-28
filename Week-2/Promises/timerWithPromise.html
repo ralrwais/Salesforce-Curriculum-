@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1 id="clock"></h1>
+	<button id="stopButton" onclick="stop()">Stop</button>	
+	<button id="startButton" onclick="start()">Start</button>
+</body>
+
+<script type="text/javascript">
+
+	let clock = document.getElementById('clock'),
+		start = document.getElementById('startButton'),
+		seconds = 0;
+
+		var timer = function(delay) {
+	    let seconds = 0;
+	    return new Promise((resolve, reject) => {
+	        let increment = function() {
+	            seconds++;
+	            clock.innerHTML = `${Math.floor(seconds / 60)} : ${seconds % 60}`;
+	            resolve(timer);
+	        }
+	        return setInterval(increment, delay)
+	        
+	    })
+	}
+
+	let myTimer = timer(10);
+
+	function stop(interVal) {
+	    clearInterval(interVal);
+	}
+
+</script>
+</html>

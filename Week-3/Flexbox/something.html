@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Beyonce Albums</title>
+</head>
+<style type="text/css">
+	#songList {
+		display: flex;
+		flex-direction: row;
+		max-width: 80vw;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+</style>
+<body>
+
+	<h3 id="artistName"></h3>
+	<ul id="songList">
+		<li id="musicVideo" style="list-style: none;">
+			<div class="songTitle"></div>
+			<div class="albumCover"></div>
+		</li>
+	</ul>
+
+
+</body>
+
+<script type="text/javascript">
+
+fetch('https://itunes.apple.com/search?term=Beyonce&entity=musicVideo')
+	.then(res => res.json())
+	.then(data => {
+
+		console.log(data);
+		
+		let beyonceVideos = data.results.slice(0, 1),
+			artistName = beyonceVideos[0].artistName,
+			artist = document.getElementById('artistName');
+		
+		artist.innerHTML = artistName;
+
+		beyonceVideos.forEach((video) => {
+
+			let songTitle = video.trackName,
+				albumCover = video.artworkUrl100,
+				musicVideo = document.getElementById('musicVideo'),
+				newVideo = musicVideo.cloneNode(true);
+			newVideo.id = '';
+			let songList = document.getElementById('songList'),
+				newSongTitle = document.querySelector('#musicVideo .songTitle'),
+				newAlbumCover = document.querySelector('#musicVideo .albumCover'),
+				albumCoverImage = `<img src="${albumCover}"/>`; 
+
+			newAlbumCover.innerHTML = albumCoverImage;
+			newSongTitle.innerHTML = songTitle;
+			songList.append(newVideo);
+		})
+	})
+	.catch(err => {
+		console.log('Error: ', err);
+	}) 
+
+	
+</script>
+</html>

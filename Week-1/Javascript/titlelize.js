@@ -28,3 +28,4 @@ titleLize(firstNames, function(arr){
 		console.log(fullName);
 	});
 })
+
