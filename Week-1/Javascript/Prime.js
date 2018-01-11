@@ -6,3 +6,4 @@ let isPrime = (x) => {
 	}
 	return x > 1;
 }
+

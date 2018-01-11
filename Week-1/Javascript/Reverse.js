@@ -14,3 +14,12 @@ let myReverse = (arr) => {
   }
   return newArr;
 }
+
+
+
+[A B C D E F]
+ 0 1 2 3 4 5
+
+ if(!array[i].equals(array[array.length - i])){
+  return false;
+ }

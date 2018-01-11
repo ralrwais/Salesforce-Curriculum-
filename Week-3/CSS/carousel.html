@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+	.hidden{
+		display: none;
+	}
+</style>
+</head>
+
+<body>
+	<div id="carousel">
+	<div id="my-carousel">  
+	    <ul>  
+	        <li style="background: pink" class="hidden item">Look</li>  
+	        <li style=" background: blue" class="hidden item">At</li>  
+	        <li style="background: green" class="hidden item">This</li>  
+	        <li style="background: yellow" class="hidden item">Carousel</li>  
+	    </ul>  
+	</div>  
+	</div>
+</body>
+<script type="text/javascript">
+	let currentIndex = 1;
+
+	setInterval(() => {
+		var items = document.querySelectorAll(".item");
+		items = Array.from(items);
+
+		items.forEach((item, i) => {
+			let modIndex = currentIndex % items.length;
+			if(i == modIndex){
+				item.classList.remove("hidden");
+			} else{
+				item.classList.add("hidden");
+			}
+		})
+
+		currentIndex++;
+	}, 2000)
+
+</script>
+</html>

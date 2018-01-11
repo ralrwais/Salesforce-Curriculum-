@@ -152,11 +152,22 @@
 	    </ul>  
 	</div>  
 	</div>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function dropdownMenu() {
 		document.getElementById("dropdown-two").classList.toggle("dropdownVisible");
 	}
+
+	$(window).click(function(e) {
+		
+		var drop = document.getElementById("dropdown-two");
+		if(drop.classList.contains("dropdownVisible") && !e.target.classList.contains("click-col")){
+			drop.classList.remove("dropdownVisible");
+			console.log(drop);
+			
+		}
+	})
+
 
 </script>
 </body>
